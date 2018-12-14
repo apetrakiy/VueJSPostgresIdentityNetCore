@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UserService.Api.Extensions;
 
 namespace UserService.Api.Entities
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<long>, long>
+    public class UserServiceDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, long>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public UserServiceDbContext(DbContextOptions<UserServiceDbContext> options)
             : base(options)
         { }
 

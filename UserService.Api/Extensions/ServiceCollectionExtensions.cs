@@ -12,10 +12,10 @@ namespace UserService.Api.Extensions
         {
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationClaimsPrincipalFactory>();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<UserServiceDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole<long>>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<UserServiceDbContext>()
                 .AddDefaultTokenProviders();
 
         }
